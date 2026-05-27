@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.tyhmeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+
+        :root{
+          --primary:#275BF5;
+          --background:#F3F4F6;
+        }
+
+        body{
+          margin:0;
+          font-family:Arial, Helvetica, sans-serif;
+          background:var(--background);
+        }
+
+        .container{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          min-height:100vh;
+          padding:20px;
+        }
+
+        .content{
+          width:100%;
+          max-width:420px;
+        }
+
+        .header{
+          text-align:center;
+          margin-bottom:24px;
+        }
+
+        .logo{
+          width:64px;
+          height:64px;
+          border-radius:20px;
+          background:var(--primary);
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          color:white;
+          font-size:30px;
+          margin:0 auto 16px auto;
+          box-shadow:0 8px 12px rgba(0,0,0,0.2);
+        }
+
+        .welcome{
+          color:#4B5563;
+          font-size:16px;
+        }
+
+        .brand{
+          font-size:32px;
+          font-weight:bold;
+          color:var(--primary);
+        }
+
+        .subtitle{
+          font-size:14px;
+          color:#9CA3AF;
+        }
+
+        .card{
+          background:white;
+          border-radius:24px;
+          padding:24px;
+          box-shadow:0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .input-group{
+          margin-bottom:16px;
+        }
+
+        .label{
+          font-size:14px;
+          font-weight:600;
+          color:#374151;
+          margin-bottom:6px;
+          display:block;
+        }
+
+        .input-wrapper{
+          display:flex;
+          align-items:center;
+          background:#F9FAFB;
+          border:1.5px solid #E5E7EB;
+          border-radius:12px;
+          padding:0 16px;
+          height:48px;
+        }
+
+        .input-wrapper i{
+          margin-right:12px;
+          color:#9CA3AF;
+        }
+
+        .input{
+          border:none;
+          outline:none;
+          flex:1;
+          background:transparent;
+        }
+
+        .forgot{
+          text-align:right;
+          margin-top:8px;
+        }
+
+        .forgot a{
+          font-size:12px;
+          color:var(--primary);
+          font-weight:600;
+          text-decoration:none;
+        }
+
+        .primary-btn{
+          background:var(--primary);
+          border:none;
+          height:48px;
+          border-radius:12px;
+          color:white;
+          width:100%;
+          font-weight:bold;
+          margin-top:16px;
+          cursor:pointer;
+        }
+
+        .divider{
+          display:flex;
+          align-items:center;
+          margin:16px 0;
+        }
+
+        .divider-line{
+          flex:1;
+          height:1px;
+          background:#E5E7EB;
+        }
+
+        .divider span{
+          margin:0 16px;
+          color:#9CA3AF;
+          font-size:12px;
+        }
+
+        .secondary-btn{
+          width:100%;
+          height:48px;
+          border-radius:12px;
+          border:2px solid var(--primary);
+          background:transparent;
+          color:var(--primary);
+          font-weight:bold;
+          cursor:pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="content">
+
+        <div class="header">
+            <div class="logo">
+                <i class="bi bi-book"></i>
+            </div>
+
+            <div class="welcome">Bem-vindo ao</div>
+            <div class="brand">Educapp</div>
+            <div class="subtitle">Seu portal escolar digital</div>
+        </div>
+
+        <div class="card">
+
+            <form method="post" th:action="@{/login}">
+            <div class="input-group">
+                <label class="label">Email</label>
+                <div class="input-wrapper">
+                    <i class="bi bi-envelope"></i>
+                    <input class="input" type="text" placeholder="seu@email.com" name="username" id="username">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="label">Senha</label>
+                <div class="input-wrapper">
+                    <i class="bi bi-lock"></i>
+                    <input class="input" type="password" name="password" id="password" placeholder="Sua senha secreta">
+                    <i class="bi bi-eye-slash"></i>
+                </div>
+            </div>
+
+            <p th:if="${param.error}" style="color:red;">
+                Email ou senha inválidos
+            </p>
+
+            <button class="primary-btn" type="submit">
+                Entrar →
+            </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
