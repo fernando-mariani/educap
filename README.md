@@ -169,7 +169,7 @@ npm run android
 
 <h2>How to run</h2>
 
-<h3>Prerequisites</h3>
+<h3>Requirements</h3>
 <ul>
   <li>Docker installed</li>
   <li>Android Studio installed</li>
